@@ -19,7 +19,7 @@ const players = [{
   },{
     id: 4,
     name: "Ross",
-    wins: 1,
+    wins: 2,
     quote: "Oh um fuck. I don't know."
   },{
     id: 5,
