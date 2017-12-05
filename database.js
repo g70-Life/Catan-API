@@ -56,41 +56,48 @@ function findLeader(array){
     if (play.wins > first){
       topScores[0] = play
       first = play.wins
+      manip.pop(play)
     }
   })
   manip.forEach(play => {
     if (play.wins > second && play.wins <= first){
       topScores[1] = play
       second = play.wins
+      manip.pop(play)
     }
   })
   manip.forEach(play => {
     if(play.wins > third && play.wins <= second){
       topScores[2] = play
       third = play.wins
+      manip.pop(play)
     }
   })
   manip.forEach(play => {
     if (play.wins > fourth && play.wins <= third){
       topScores[0] = play
       fourth = play.wins
+      manip.pop(play)
     }
   })
   manip.forEach(play => {
     if (play.wins > fifth && play.wins <= fourth){
       topScores[0] = play
       fifth = play.wins
+      manip.pop(play)
     }
   })
   manip.forEach(play => {
     if (play.wins > sixth && play.wins <= fifth){
       topScores[0] = play
       sixth = play.wins
+      manip.pop(play)
     }
   })
   manip.forEach(play => {
     if (play.wins < sixth){
       leftovers.push(play)
+      manip.pop(play)
     }
   })
   return topScores
