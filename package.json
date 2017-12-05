@@ -5,7 +5,8 @@
   "main": "database.js",
   "scripts": {
     "test": "node database.js",
-    "start": "node database.js"
+    "start": "node database.js",
+    "dev": "nodemon database.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,11 @@
   },
   "homepage": "https://github.com/g70-Life/Catan-Leaderboard#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.4"
   }
 }

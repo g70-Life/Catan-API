@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const bodyParser = require('body-parser')
 
 const players = [{
     id: 1,
@@ -36,19 +37,60 @@ const players = [{
 const app = express()
 app.use(cors())
 
-function findLeader(players){
-  let leaderboard = []
-  let mostWins = 0
-  let nextMost = 0
-  for (var i = 0; i < players.length; i++){
-    if (players[i].wins > mostWins){
-      leaderboard.unshift(players[i])
-      mostWins = players[i].wins;
-    } else {
-      leaderboard.push(players[i])
+let topScores = []
+let leftovers = []
+
+function findLeader(array){
+  let manip = array
+  let first = 0
+  let second = 0
+  let third = 0
+  let fourth = 0
+  let fifth = 0
+  let sixth = 0
+
+  manip.forEach(play => {
+    if (play.wins > first){
+      topScores[0] = play
+      first = play.wins
     }
-  }
-  return leaderboard
+  })
+  manip.forEach(play => {
+    if (play.wins > second && play.wins < first){
+      topScores[1] = play
+      second = play.wins
+    }
+  })
+  manip.forEach(play => {
+    if(play.wins > third && play.wins < second){
+      topScores[2] = play
+      third = play.wins
+    }
+  })
+  manip.forEach(play => {
+    if (play.wins > fourth && play.wins < third){
+      topScores[0] = play
+      fourth = play.wins
+    }
+  })
+  manip.forEach(play => {
+    if (play.wins > fifth && play.wins < fourth){
+      topScores[0] = play
+      fifth = play.wins
+    }
+  })
+  manip.forEach(play => {
+    if (play.wins > sixth && play.wins < fifth){
+      topScores[0] = play
+      sixth = play.wins
+    }
+  })
+  manip.forEach(play => {
+    if (play.wins < sixth){
+      leftovers.push(play)
+    }
+  })
+  return topScores
 }
 
 app.get('/', function(request, response){
