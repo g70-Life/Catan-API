@@ -37,11 +37,14 @@ const players = [{
 const app = express()
 app.use(cors())
 
-let topScores = []
-let leftovers = []
+
 
 function findLeader(array){
   let manip = array
+
+  let topScores = []
+  let leftovers = []
+
   let first = 0
   let second = 0
   let third = 0
@@ -56,31 +59,31 @@ function findLeader(array){
     }
   })
   manip.forEach(play => {
-    if (play.wins > second && play.wins < first){
+    if (play.wins > second && play.wins <= first){
       topScores[1] = play
       second = play.wins
     }
   })
   manip.forEach(play => {
-    if(play.wins > third && play.wins < second){
+    if(play.wins > third && play.wins <= second){
       topScores[2] = play
       third = play.wins
     }
   })
   manip.forEach(play => {
-    if (play.wins > fourth && play.wins < third){
+    if (play.wins > fourth && play.wins <= third){
       topScores[0] = play
       fourth = play.wins
     }
   })
   manip.forEach(play => {
-    if (play.wins > fifth && play.wins < fourth){
+    if (play.wins > fifth && play.wins <= fourth){
       topScores[0] = play
       fifth = play.wins
     }
   })
   manip.forEach(play => {
-    if (play.wins > sixth && play.wins < fifth){
+    if (play.wins > sixth && play.wins <= fifth){
       topScores[0] = play
       sixth = play.wins
     }
