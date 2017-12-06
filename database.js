@@ -10,7 +10,7 @@ const players = [{
   },{
     id: 2,
     name: "Kevin",
-    wins: 2,
+    wins: 3,
     quote: "I'm a strong and independant woman."
   },{
     id: 3,
