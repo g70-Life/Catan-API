@@ -30,7 +30,7 @@ const players = [{
   },{
     id: 6,
     name: "Paul",
-    wins: 2,
+    wins: 3,
     quote: "That was delicious"
   }]
 
