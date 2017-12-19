@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const players = [{
     id: 1,
     name: "Bryan",
-    wins: 7,
+    wins: 8,
     quote: "Nobody wants your fucking sheep."
   },{
     id: 2,
